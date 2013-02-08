@@ -1,0 +1,92 @@
+# --------------- #
+# List of classes #
+# --------------- #
+
+- class: DiscreteObject
+
+- class: Discrete2DObject
+  inherits:
+    - DiscreteObject
+
+- class: Discrete3DObject
+  inherits:
+    - DiscreteObject
+
+- class: DiscreteFiniteObject
+  inherits:
+    - DiscreteObject
+  methods:
+    - "+ plot(options)"
+
+- class: DiscreteInfiniteObject
+  inherits:
+    - DiscreteObject
+
+- class: DiscreteFinite2DObject
+  attributes:
+    - "- length"
+    - "- width"
+  inherits:
+    - Discrete2DObject
+    - DiscreteFiniteObject
+
+- class: DiscreteFinite3DObject
+  attributes:
+    - "- length"
+    - "- width"
+    - "- height"
+  inherits:
+    - Discrete3DObject
+    - DiscreteFiniteObject
+
+# ---------- #
+# 3D classes #
+# ---------- #
+
+- class: Polycube
+  inherits:
+    - DiscreteFinite3DObject
+  methods:
+    - "+ number_of_voxels() : integer"
+    - "+ cells() : (integer, integer, integer)"
+
+# ---------- #
+# 2D classes #
+# ---------- #
+
+- class: Polyomino
+  inherits:
+    - DiscreteFinite2DObject
+  attributes:
+    - "- boundary : LatticePath"
+  methods:
+    - "+ length() : integer"
+    - "+ boundary_word() : boundary word"
+
+- class: LatticePath
+  inherits:
+    - Discrete2DObject
+  ispartof:
+    - Polyomino
+  methods:
+    - "+ length() : integer"
+    - "+ origin() : (integer, integer)"
+    - "+ source() : (integer, integer)"
+    - "+ word() : word"
+    - "+ is_simple() : boolean"
+
+# ------------------- #
+# Special polyominoes #
+# ------------------- #
+
+- class: SnakePolyomino
+  inherits:
+    - Polyomino
+  methods:
+    - "+ enumerate_by_rectangle(integer, integer)"
+
+- class: TreePolyomino
+  inherits:
+    - Polyomino
+  methods:
+    - "+ enumerate_by_rectangle(integer, integer)"
