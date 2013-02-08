@@ -1,8 +1,14 @@
+Discrete Geometry in Sage
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This repository contains material to help design a discrete geometry
+library in `Sage <http://sagemath.org>`__
+
 YAUML
 =====
 
-Script for generating UML diagrams from
-`YAML <http://www.yaml.org/>`__ files.
+A script for generating UML diagrams from
+`YAML <http://www.yaml.org/>`__ files has been included.
 
 Dependencies
 ------------
