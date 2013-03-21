@@ -30,5 +30,15 @@ Then run::
 
     make
 
+You should obtain the following figure:
+
+.. figure
+
+.. figure:: diagramme.png
+    :scale: 50 %
+    :alt: UML diagram 
+
+    UML diagram of classes of the digital geometry library
+
 Currently, only inheritance and meronymy (is-part-of)
 relations are supported
