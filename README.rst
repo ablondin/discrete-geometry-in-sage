@@ -4,6 +4,12 @@ Discrete Geometry in Sage
 This repository contains material to help design a discrete geometry
 library in `Sage <http://sagemath.org>`__
 
+Definitions
+===========
+
+A *voxel* is a set of the form :math:`[x_1, x_1 + 1] \times [x_2, x_2 + 1]
+\times \ldots [x_n, x_n + 1]`, where
+
 YAUML
 =====
 
