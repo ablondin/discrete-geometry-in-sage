@@ -58,19 +58,19 @@
   inherits:
     - FiniteSpace3D
 
-- class: Polyominoes
+- class: Polyomino
   inherits:
     - FiniteSurface2D
 
-- class: TreePolyominoes
+- class: TreePolyomino
   inherits:
-    - Polyominoes
+    - Polyomino
 
-- class: SnakePolyominoes
+- class: SnakePolyomino
   inherits:
-    - TreePolyominoes
+    - TreePolyomino
 
-- class: LatticePaths
+- class: LatticePath
   inherits:
     - FiniteCurve2D
 
