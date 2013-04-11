@@ -2,91 +2,75 @@
 # List of classes #
 # --------------- #
 
+# Manifolds
+
 - class: DiscreteObject
 
-- class: Discrete2DObject
+- class: Space3D
   inherits:
     - DiscreteObject
 
-- class: Discrete3DObject
+- class: Surface3D
   inherits:
     - DiscreteObject
 
-- class: DiscreteFiniteObject
-  inherits:
-    - DiscreteObject
-  methods:
-    - "+ plot(options)"
-
-- class: DiscreteInfiniteObject
+- class: Surface2D
   inherits:
     - DiscreteObject
 
-- class: DiscreteFinite2DObject
-  attributes:
-    - "- length"
-    - "- width"
+- class: Curve3D
   inherits:
-    - Discrete2DObject
-    - DiscreteFiniteObject
+    - DiscreteObject
 
-- class: DiscreteFinite3DObject
-  attributes:
-    - "- length"
-    - "- width"
-    - "- height"
+- class: Curve2D
   inherits:
-    - Discrete3DObject
-    - DiscreteFiniteObject
+    - DiscreteObject
 
-# ---------- #
-# 3D classes #
-# ---------- #
+# Finite manifolds
+
+- class: FiniteSpace3D
+  inherits:
+    - Space3D
+
+- class: FiniteSurface3D
+  inherits:
+    - Surface3D
+
+- class: FiniteSurface2D
+  inherits:
+    - Surface2D
+
+- class: FiniteCurve3D
+  inherits:
+    - Curve3D
+
+- class: FiniteCurve2D
+  inherits:
+    - Curve2D
+
+# Specialized manifolds
+
+- class: DiscretePlane
+  inherits:
+    - Space3D
 
 - class: Polycube
   inherits:
-    - DiscreteFinite3DObject
-  methods:
-    - "+ number_of_voxels() : integer"
-    - "+ cells() : (integer, integer, integer)"
+    - FiniteSpace3D
 
-# ---------- #
-# 2D classes #
-# ---------- #
-
-- class: Polyomino
+- class: Polyominoes
   inherits:
-    - DiscreteFinite2DObject
-  attributes:
-    - "- boundary : LatticePath"
-  methods:
-    - "+ length() : integer"
-    - "+ boundary_word() : boundary word"
+    - FiniteSurface2D
 
-- class: LatticePath
+- class: TreePolyominoes
   inherits:
-    - Discrete2DObject
-  ispartof:
-    - Polyomino
-  methods:
-    - "+ length() : integer"
-    - "+ origin() : (integer, integer)"
-    - "+ source() : (integer, integer)"
-    - "+ word() : word"
-    - "+ is_simple() : boolean"
+    - Polyominoes
 
-# ------------------- #
-# Special polyominoes #
-# ------------------- #
-
-- class: SnakePolyomino
+- class: SnakePolyominoes
   inherits:
-    - Polyomino
-  methods:
-    - "+ enumerate_by_rectangle(integer, integer)"
+    - TreePolyominoes
 
-- class: TreePolyomino
+- class: LatticePaths
   inherits:
-    - Polyomino
-  methods:
-    - "+ enumerate_by_rectangle(integer, integer)"
+    - FiniteCurve2D
+
